@@ -7433,53 +7433,6 @@ Standard 2-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 </deviceset>
 </devicesets>
 </library>
-<library name="abes">
-<packages>
-<package name="FIDUCIAL-1.5X3">
-<circle x="0" y="0" radius="0.9055" width="1.27" layer="29"/>
-<smd name="1" x="0" y="0" dx="1.5" dy="1.5" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="FIDUCIAL-1X2">
-<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
-</package>
-<package name="FIDUCIAL-1X2.5">
-<smd name="1" x="0" y="0" dx="0.635" dy="0.635" layer="1" roundness="100" cream="no"/>
-</package>
-</packages>
-<symbols>
-<symbol name="FIDUCIAL">
-<wire x1="-0.762" y1="0.762" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
-<wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
-<circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="FIDUCIAL" prefix="JP">
-<description>&lt;b&gt;Fiducial Alignment Points&lt;/b&gt;
-Various fiducial points for machine vision alignment.</description>
-<gates>
-<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
-</gates>
-<devices>
-<device name="1.5X3" package="FIDUCIAL-1.5X3">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1X2" package="FIDUCIAL-1X2">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="1X2.5" package="FIDUCIAL-1X2.5">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="Testing">
 <packages>
 <package name="TACTILE-PTH">
@@ -8687,6 +8640,12 @@ We've spent an enormous amount of time creating and checking these footprints an
 <vertex x="-1.0938" y="0" curve="-247.497204"/>
 <vertex x="0.4186" y="-1.0105"/>
 </polygon>
+</package>
+<package name="FIDUCIAL-1X2">
+<smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="MICRO-FIDUCIAL">
+<smd name="1" x="0" y="0" dx="0.635" dy="0.635" layer="1" roundness="100" cream="no"/>
 </package>
 </packages>
 <symbols>
@@ -12282,6 +12241,11 @@ We've spent an enormous amount of time creating and checking these footprints an
 <vertex x="0.6834" y="-1.65"/>
 </polygon>
 </symbol>
+<symbol name="FIDUCIAL">
+<wire x1="-0.762" y1="0.762" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="0.762" y1="0.762" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
+<circle x="0" y="0" radius="1.27" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="FRAME-LETTER" prefix="FRAME">
@@ -12316,6 +12280,25 @@ Standard 8.5x11 US Letter frame</description>
 </technologies>
 </device>
 <device name="L" package="OSHW-LOGO-L">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="FIDUCIAL" prefix="FID">
+<description>&lt;b&gt;Fiducial Alignment Points&lt;/b&gt;
+Various fiducial points for machine vision alignment.</description>
+<gates>
+<gate name="G$1" symbol="FIDUCIAL" x="0" y="0"/>
+</gates>
+<devices>
+<device name="1X2" package="FIDUCIAL-1X2">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="UFIDUCIAL" package="MICRO-FIDUCIAL">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -12490,10 +12473,6 @@ Simple light detection sensor. Output varies with light intensity input. Spark F
 <part name="U$23" library="SparkFun" deviceset="MOUSE-BITE-5" device=""/>
 <part name="JP18" library="SparkFun" deviceset="LOGO-SFE" device="NEW"/>
 <part name="JP17" library="SparkFun" deviceset="LOGO-SFE" device="SK"/>
-<part name="JP19" library="abes" deviceset="FIDUCIAL" device="1X2.5"/>
-<part name="JP20" library="abes" deviceset="FIDUCIAL" device="1X2.5"/>
-<part name="JP16" library="abes" deviceset="FIDUCIAL" device="1X2.5"/>
-<part name="JP22" library="abes" deviceset="FIDUCIAL" device="1X2.5"/>
 <part name="FRAME2" library="SparkFun" deviceset="FRAME-LETTER" device=""/>
 <part name="LED4" library="SparkFun" deviceset="LED-TRICOLOR" device=""/>
 <part name="R4" library="SparkFun" deviceset="RESISTOR" device="0603-RES" value="200"/>
@@ -12523,6 +12502,8 @@ Simple light detection sensor. Output varies with light intensity input. Spark F
 <part name="S2" library="Testing" deviceset="SWITCH-MOMENTARY-2" device="SMD-ALT01" value=""/>
 <part name="LOGO1" library="SparkFun-Aesthetics" deviceset="OSHW-LOGO" device="S"/>
 <part name="U5" library="SparkFun-Sensors" deviceset="LIGHTSENSOR" device="ALS" value="ALS-PT19"/>
+<part name="FID1" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1X2"/>
+<part name="FID2" library="SparkFun-Aesthetics" deviceset="FIDUCIAL" device="1X2"/>
 </parts>
 <sheets>
 <sheet>
@@ -12637,12 +12618,10 @@ Simple light detection sensor. Output varies with light intensity input. Spark F
 <instance part="U$23" gate="G$1" x="198.12" y="48.26"/>
 <instance part="JP18" gate="G$1" x="241.3" y="25.4"/>
 <instance part="JP17" gate="G$1" x="231.14" y="25.4"/>
-<instance part="JP19" gate="G$1" x="231.14" y="38.1"/>
-<instance part="JP20" gate="G$1" x="236.22" y="38.1"/>
-<instance part="JP16" gate="G$1" x="241.3" y="38.1"/>
-<instance part="JP22" gate="G$1" x="246.38" y="38.1"/>
 <instance part="S1" gate="G$1" x="27.94" y="96.52" rot="R90"/>
 <instance part="LOGO1" gate="G$1" x="236.22" y="50.8"/>
+<instance part="FID1" gate="G$1" x="246.38" y="38.1"/>
+<instance part="FID2" gate="G$1" x="241.3" y="38.1"/>
 </instances>
 <busses>
 </busses>
