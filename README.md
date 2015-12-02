@@ -1,3 +1,6 @@
+**_NOTE: This product has been retired from our catalog. This information is made available for those who are curious._**
+
+
 ProtoSnap Pro-Mini
 ===================
 
